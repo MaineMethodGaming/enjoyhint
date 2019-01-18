@@ -73,6 +73,7 @@ var enjoyhint_script_steps = [
 #### Properties of instance configuration
 * `container` - scrollable container (default `body`)
 * `animation_time` - time between scroll animation and arrow render (default ms `800`)
+* `disableArrow` - disable the arrow from rendering for the entire script (default `false`)
 
 ```javascript
 //initialize instance
@@ -123,8 +124,6 @@ var enjoyhint_instance = new EnjoyHint({
 * `showNext` - shows or hides the Next button (true|false)
 
 
-
-
 #### Non-standard events:
 * `auto` - Triggers event on selector automatically, and continues to the next step.  For example, you need to click on the same button on the second step imediatelly after the first step and go to the next step after it. Then you can use "auto" in the "event_type" property and "click" in 'event' property.
 ```javascript
@@ -152,7 +151,8 @@ enjoyhint_instance.set( [ {
 #### Tour Methods
 * `stop()` - End script
 * `reRunScript(current_step)` - Restart script at current_step.
-* `set(steps_array)` - Set current steps configuration.
+* `set(steps_array)` - Set current steps configuration. * DEPRECIATED - Use setScript
+* `setScript(steps_array)` - Set current steps configuration.
 * `setCurrentStep(current_step)` - Set the step to resume at.
 * `run()` - Run the current script.
 * `resume()` - Resume the script from the step where it was stopped.
@@ -177,7 +177,23 @@ var enjoyhint_script_steps = [
 ];
 ```
 
+
+Road Mapping Features
+#### Instance Features
+* `closeButton` - allows the positioning of the Close button
+* `showClose` - shows or hides the Close button (true|false)
+* `buttonBG` - Background properties for all buttons
+* `overlayBG` - Background properties for overlay
+* `arrowColor` - Color property for the arrow
+* `fontColor` - Default font color
+
+#### Properties of the step configuration
+* `showArrow` - Shows or hides the arrow for the step
+
 #### Changelogs
+
+##### 1.2.3
+* Add disableArrow instance option
 
 ##### 1.2.2
 * Prevent y axis overflow when hint is near the bottom of the screen

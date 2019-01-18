@@ -23,7 +23,9 @@ var EnjoyHint = function (_options) {
 
         container: 'body',
 
-        animation_time: 800
+        animation_time: 800,
+
+        disableArrow: false
     };
 
     var options = $.extend(defaults, _options);
@@ -55,7 +57,8 @@ var EnjoyHint = function (_options) {
                 skipAll();
             },
 
-            animation_time: options.animation_time
+            animation_time: options.animation_time,
+            disableArrow: options.disableArrow
         });
     };
 

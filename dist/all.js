@@ -25,7 +25,9 @@
 
         container: 'body',
 
-        animation_time: 800
+        animation_time: 800,
+
+        disableArrow: false
     };
 
     var options = $.extend(defaults, _options);
@@ -57,7 +59,8 @@
                 skipAll();
             },
 
-            animation_time: options.animation_time
+            animation_time: options.animation_time,
+            disableArrow: options.disableArrow
         });
     };
 
@@ -493,7 +496,8 @@
 
                     },
 
-                    animation_time: 800
+                    animation_time: 800,
+                    disableArrow: false
                 };
 
                 this.enjoyhint_obj = {};
@@ -985,9 +989,12 @@
 
                         $('#enjoyhint_arrpw_line').remove();
 
-                        var d = 'M' + x_from + ',' + y_from + ' C' + control_point_x1 + "," + control_point_y1 + " " + control_point_x + ',' + control_point_y + ' ' + x_to + ',' + y_to;
+                        //PREVENT ARROW FROM RENDERING IF DISABLED
+                        if(!that.options.disableArrow){
+                            var d = 'M' + x_from + ',' + y_from + ' C' + control_point_x1 + "," + control_point_y1 + " " + control_point_x + ',' + control_point_y + ' ' + x_to + ',' + y_to;
 
-                        that.$svg.append(makeSVG('path', {style: "fill:none; stroke:rgb(255,255,255); stroke-width:3", 'marker-end': "url(#arrowMarker)", d: d, id: 'enjoyhint_arrpw_line'}));
+                            that.$svg.append(makeSVG('path', {style: "fill:none; stroke:rgb(255,255,255); stroke-width:3", 'marker-end': "url(#arrowMarker)", d: d, id: 'enjoyhint_arrpw_line'}));
+                        }
                         that.enjoyhint.removeClass(that.cl.svg_transparent);
 
                     }, that.options.animation_time / 2);
@@ -1178,7 +1185,15 @@
                     label.remove();
 
                     var label_ver_side = (body_size.h - data.center_y) < data.center_y ? 'top' : 'bottom';
-                    var label_shift = 150;
+                    var label_shift = 20;
+
+                    //SHRINK DISTANCE BETWEEN LABEL AND ELEMENT IF ARROW IS DISABLED
+                    if(that.options.disableArrow){
+                        label_shift = label_shift + (data.radius / 2)   ;
+                    } else {
+                        label_shift = label_shift + 130;
+                    }
+
                     var label_ver_offset = half_h + label_shift;
 
                     var label_y = (label_ver_side == 'top') ? data.center_y - label_ver_offset - label_height : data.center_y + label_ver_offset;

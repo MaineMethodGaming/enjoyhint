@@ -1,6 +1,6 @@
 {
   "name": "enjoyhint.js",
-  "version": "1.2.1",
+  "version": "1.2.3",
   "description": "Web-tool that provides the simplest way to create interactive tutorials and hints.",
   "main": "dist/enjoyhint.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/darron1217/enjoyhint.js.git"
+    "url": "https://github.com/MaineMethodGaming/enjoyhint.js.git"
   },
   "keywords": [
     "enjoyhint",
@@ -16,12 +16,12 @@
     "xbs",
     "tutorials"
   ],
-  "author": "Darron Park",
+  "author": "Fork by Bob Sawyer",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/darron1217/enjoyhint.js/issues"
+    "url": "https://github.com/MaineMethodGaming/enjoyhint.js/issues"
   },
-  "homepage": "https://github.com/darron1217/enjoyhint.js",
+  "homepage": "https://github.com/MaineMethodGaming/enjoyhint.js",
   "devDependencies": {
     "grunt-contrib-concat": "^0.5.1",
     "grunt-contrib-cssmin": "^0.11.0",

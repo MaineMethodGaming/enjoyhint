@@ -6,7 +6,15 @@ var enjoyhint_instance = new EnjoyHint({});
 //hide EnjoyHint after a click on the button.
 var enjoyhint_script_steps = [
     {
-        "next #banner": 'Hello, I\'d like to tell you about EnjoyHint.<br> Click "Next" to proceed.'
+        "click .btn-success" : "For example, let's set a handler for a button click event.<br>" +
+            "{<br>" +
+            "<text style='color: #00a6eb'>&nbsp &nbsp ' click .btn-success '</text> : <text style='color: #2bff3c'>' Some description '</text> <br>" +
+            "}<br>" +
+            "Click the button and move on.",
+        showSkip: false
+    },
+    {
+        "next #banner": 'Hello, I\'d like to tell you about EnjoyHint.<br> Click "Next" to proceed.',
     },
     {
         "next #buttons": "You can select different blocks. For example, let's select title.<br>" +
